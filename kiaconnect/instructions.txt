@@ -1,15 +1,28 @@
+##########################
+#####  Requirements  #####
+##########################
+
 # install requests and selenium package
 pip install requests selenium 
 
-# if runnign under WSL, then install chromium and the chromedriver
+# if running under WSL, then install chromium and the chromedriver
 sudo apt install chromium-browser
 sudo apt install chromium-chromedriver
+
+##########################
+##### Get the tokens #####
+##########################
 
 # run python script KiaFetchApiTokensEasy.py
 
 # a Chrome dev browser will be loaded, login and finish the captcha
-# after a successfull login the script wioll present you the tokens
+# after a successfull login the script will present you the tokens
 
+##########################
+##### Update package #####
+##########################
+
+# Update the KiaUvoApiEU.py file in the hyundai_kia_connect_api package:
 # When using HAOS
 # place file in: /config/temp/KiaUvoApiEU.py
 # In "Advanced SSH & Web Terminal", with "protected mode" off, execute:
@@ -18,4 +31,11 @@ docker exec -it homeassistant bash
 cd /usr/local/lib/python3.13/site-packages/hyundai_kia_connect_api/
 cp /config/temp/KiaUvoApiEU.py .
 
-# restart and use the refresh token as password
+#################################
+##### Configure integration #####
+#################################
+
+# restart HA
+
+# if you already have the integration confgured, then remove the hub/device (not the integration) and re-add the hub/device
+# Use your normal Kia Connect username, but use the refresh token as your password for the integration
